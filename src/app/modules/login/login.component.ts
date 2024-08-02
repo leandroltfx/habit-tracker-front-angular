@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ht-login',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public loginForm!: FormGroup;
+  public hiddenPassword: boolean = false;
+
+  constructor(
+    private readonly _formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
+    this.loginForm = this._buildLoginForm();
+  }
+
+  private _buildLoginForm(): FormGroup {
+    return this._formBuilder.group({
+      email: null,
+      password: null,
+    });
   }
 
 }
