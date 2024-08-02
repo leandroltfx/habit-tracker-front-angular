@@ -10,6 +10,9 @@ import { MatInputModule } from '@angular/material/input';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import { LoginAdapterService } from './login-acl/adapter/login-adapter.service';
+import { LoginProxyService } from './login-acl/proxy/login-proxy.service';
+import { LoginService } from './login-acl/service/login-service';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,11 @@ import { LoginComponent } from './login.component';
     MatInputModule,
 
     LoginRoutingModule,
-  ]
+  ],
+  providers: [
+    LoginProxyService,
+    LoginAdapterService,
+    LoginService,
+  ],
 })
 export class LoginModule { }
