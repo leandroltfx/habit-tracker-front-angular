@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LoginAdapterService } from './login-adapter.service';
-import { LoginResponseContract } from 'src/app/shared/contracts/response/login-response-contract.model';
-import { LoginResponseDto } from 'src/app/shared/dto/login-response-dto';
+import { LoginResponseContract } from '../../../../shared/contracts/response/login-response.contract';
+import { LoginResponseDto } from '../../../../shared/dto/login-response.dto';
 
 describe('LoginAdapterService', () => {
   let service: LoginAdapterService;

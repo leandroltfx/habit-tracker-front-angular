@@ -1,4 +1,4 @@
-import { LoginResponseContract } from "../contracts/response/login-response-contract.model";
+import { LoginResponseContract } from "../contracts/response/login-response.contract";
 
 export const loginResponseMock: LoginResponseContract = {
     message: 'Login efetuado com sucesso!',

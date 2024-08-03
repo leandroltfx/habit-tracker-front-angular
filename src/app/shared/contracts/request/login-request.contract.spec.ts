@@ -1,4 +1,4 @@
-import { LoginRequestContract } from "./login-request-contract.model";
+import { LoginRequestContract } from "./login-request.contract";
 
 describe('LoginRequestContract', () => {
     let loginRequestContract: LoginRequestContract;

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LoginProxyService } from './login-proxy.service';
-import { LoginRequestContract } from '../../../../shared/contracts/request/login-request-contract.model';
+import { LoginRequestContract } from '../../../../shared/contracts/request/login-request.contract';
 
 describe('LoginProxyService', () => {
   let service: LoginProxyService;
