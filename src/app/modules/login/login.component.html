@@ -1,0 +1,27 @@
+<div class="ht-ptop-5">
+    <mat-card class="ht-w-30 ht-center">
+        <mat-card-title class="ht-text-center">
+            Habit Tracker
+        </mat-card-title>
+        <form [formGroup]="loginForm" class="ht-ptop-2">
+            <mat-form-field appearance="fill" class="ht-w-100">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Informe seu email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="ht-w-100">
+                <mat-label>Senha</mat-label>
+                <input [type]="hiddenPassword ? 'text' : 'password'" matInput placeholder="Informe sua senha"
+                    formControlName="password">
+                <button mat-icon-button matSuffix (click)="hiddenPassword = !hiddenPassword">
+                    <mat-icon>{{ hiddenPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+            <div class="ht-text-right">
+                <button type="submit" mat-raised-button color="primary" (click)="login()">Login</button>
+            </div>
+            <div class="ht-text-center">
+                <a href="" mat-button type="button">Cadastre-se</a>
+            </div>
+        </form>
+    </mat-card>
+</div>
