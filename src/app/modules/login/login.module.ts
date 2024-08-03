@@ -10,9 +10,9 @@ import { MatInputModule } from '@angular/material/input';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-import { LoginAdapterService } from './login-acl/adapter/login-adapter.service';
-import { LoginProxyService } from './login-acl/proxy/login-proxy.service';
-import { LoginService } from './login-acl/service/login-service';
+import { LoginAdapterService } from './acl/adapter/login-adapter.service';
+import { LoginProxyService } from './acl/proxy/login-proxy.service';
+import { LoginService } from './acl/service/login-service';
 
 @NgModule({
   declarations: [

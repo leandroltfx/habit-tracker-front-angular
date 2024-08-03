@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { LoginService } from './login-acl/service/login-service';
+import { LoginService } from './acl/service/login-service';
 import { LoginRequestContract } from '../../shared/contracts/request/login-request.contract';
 import { MessageService } from '../../core/services/message/message.service';
 

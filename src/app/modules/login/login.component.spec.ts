@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 import { LoginComponent } from './login.component';
-import { LoginService } from './login-acl/service/login-service';
+import { LoginService } from './acl/service/login-service';
 import { MessageService } from '../../core/services/message/message.service';
 import { LoginResponseDto } from '../../shared/dto/login-response.dto';
 
