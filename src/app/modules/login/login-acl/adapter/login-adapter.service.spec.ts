@@ -1,6 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LoginAdapterService } from './login-adapter.service';
+import { LoginResponseContract } from 'src/app/shared/contracts/response/login-response-contract.model';
+import { LoginResponseDto } from 'src/app/shared/dto/login-response-dto';
 
 describe('LoginAdapterService', () => {
   let service: LoginAdapterService;
@@ -16,5 +18,13 @@ describe('LoginAdapterService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('loginResponseContractToDto - deve transformar contrato de resposta do login em dto', () => {
+    const loginResponseContract: LoginResponseContract = {
+      message: 'Login efetuado com sucesso!'
+    }
+    const loginResponseDto: LoginResponseDto = service.loginResponseContractToDto(loginResponseContract);
+    expect(loginResponseDto.message).toBe('Login efetuado com sucesso!');
   });
 });
