@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { UserRegistrationRoutingModule } from './user-registration-routing.module';
 import { UserRegistrationComponent } from './user-registration.component';
-import { UserRegistrationProxyService } from './user-registration-acl/proxy/user-registration-proxy.service';
-import { UserRegistrationAdapterService } from './user-registration-acl/adapter/user-registration-adapter.service';
-import { UserRegistrationService } from './user-registration-acl/service/user-registration.service';
+import { UserRegistrationProxyService } from './acl/proxy/user-registration-proxy.service';
+import { UserRegistrationAdapterService } from './acl/adapter/user-registration-adapter.service';
+import { UserRegistrationService } from './acl/service/user-registration.service';
 
 @NgModule({
   declarations: [
