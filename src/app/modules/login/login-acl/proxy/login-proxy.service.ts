@@ -1,7 +1,17 @@
 import { Injectable } from '@angular/core';
 
+import { Observable } from 'rxjs';
+
+import { LoginResponseContract } from '../../../../shared/contracts/response/login-response-contract.model';
+import { loginResponseMock } from '../../../../shared/mocks/login-response-mock';
+import { LoginRequestContract } from '../../../../shared/contracts/request/login-request-contract.model';
+
 @Injectable()
 export class LoginProxyService {
 
   constructor() { }
+
+  public login(loginRequestContract: LoginRequestContract): Observable<LoginResponseContract> {
+    return new Observable(observer => observer.next(loginResponseMock));
+  }
 }

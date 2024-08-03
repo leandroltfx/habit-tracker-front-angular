@@ -3,6 +3,8 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.message-success { color: #ffffff !important; background-color: #4bb543 !important; text-align: center !important; }
+
 .ht-center { margin: 0 auto !important; }
 
 .ht-text-center { text-align: center !important; }
