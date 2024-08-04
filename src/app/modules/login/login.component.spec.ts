@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login.component';
 import { LoginService } from './acl/service/login-service';
 import { MessageService } from '../../core/services/message/message.service';
-import { LoginResponseDto } from '../../shared/dto/login-response.dto';
+import { LoginResponseDto } from '../../shared/dto/login/login-response.dto';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

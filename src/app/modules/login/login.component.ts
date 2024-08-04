@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { LoginService } from './acl/service/login-service';
-import { LoginRequestContract } from '../../shared/contracts/request/login-request.contract';
+import { LoginRequestContract } from '../../shared/contracts/request/login/login-request.contract';
 import { MessageService } from '../../core/services/message/message.service';
 
 @Component({
