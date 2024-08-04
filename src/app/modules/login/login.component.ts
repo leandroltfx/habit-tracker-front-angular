@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { LoginService } from './acl/service/login-service';
-import { LoginRequestContract } from '../../shared/contracts/request/login/login-request.contract';
+import { LoginRequestContract } from '../../shared/contracts/request/login-request.contract';
 import { MessageService } from '../../core/services/message/message.service';
 
 @Component({
@@ -26,10 +26,10 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
-    const loginRequestContract = new LoginRequestContract(
-      this.loginForm.controls['email'].value,
-      this.loginForm.controls['password'].value,
-    );
+    const loginRequestContract: LoginRequestContract = {
+      email: this.loginForm.controls['email'].value,
+      password: this.loginForm.controls['password'].value,
+    };
     this._loginService.login(
       loginRequestContract
     ).subscribe(
