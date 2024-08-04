@@ -1,1 +1,85 @@
-<p>user-registration works!</p>
+<div class="ht-ptop-5">
+    <mat-card class="ht-w-30 ht-center">
+        <mat-card-title class="ht-text-center">
+            Cadastro de usuário
+        </mat-card-title>
+        <form [formGroup]="userRegistrationForm" class="ht-ptop-2">
+            <mat-form-field appearance="fill" class="ht-w-100 ht-mbottom-2">
+                <mat-label>Nome de usuário</mat-label>
+                <input type="text" matInput placeholder="Informe um nome de usuário" formControlName="username">
+                <mat-error *ngIf="userRegistrationForm?.controls?.['username']?.errors?.['required']"
+                    class="ht-font-size-3">
+                    Informe um nome de usuário
+                </mat-error>
+                <mat-error *ngIf="userRegistrationForm?.controls?.['username']?.errors?.['pattern']"
+                    class="ht-font-size-3">
+                    O nome de usuário não deve conter espaços
+                </mat-error>
+                <mat-error
+                    *ngIf="!userRegistrationForm?.controls?.['username']?.errors?.['pattern'] && userRegistrationForm?.controls?.['username']?.errors?.['minlength']"
+                    class="ht-font-size-3">
+                    O nome de usuário deve ter no mínimo {{ minLengthUsername }} caracteres
+                </mat-error>
+                <mat-error
+                    *ngIf="!userRegistrationForm?.controls?.['username']?.errors?.['pattern'] && userRegistrationForm?.controls?.['username']?.errors?.['maxlength']"
+                    class="ht-font-size-3">
+                    O nome de usuário não pode ultrapassar {{ maxLengthUsername }} caracteres
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="ht-w-100 ht-mbottom-2">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Informe seu email" formControlName="email">
+                <mat-error *ngIf="userRegistrationForm?.controls?.['email']?.errors?.['required']"
+                    class="ht-font-size-3">
+                    Informe seu email
+                </mat-error>
+                <mat-error *ngIf="userRegistrationForm?.controls?.['email']?.errors?.['pattern']"
+                    class="ht-font-size-3">
+                    Email inválido
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="ht-w-100 ht-mbottom-2">
+                <mat-label>Senha</mat-label>
+                <input [type]="hiddenPassword ? 'text' : 'password'" matInput placeholder="Informe sua senha"
+                    formControlName="password" (ngModelChange)="updateConfirmValidator()">
+                <mat-error *ngIf="userRegistrationForm?.controls?.['password']?.errors?.['required']"
+                    class="ht-font-size-3">
+                    Informe sua senha
+                </mat-error>
+                <mat-error *ngIf="userRegistrationForm?.controls?.['password']?.errors?.['minlength']"
+                    class="ht-font-size-3">
+                    A senha deve ter no mínimo {{ minLengthPassword }} caracteres
+                </mat-error>
+                <mat-error *ngIf="userRegistrationForm?.controls?.['password']?.errors?.['maxlength']"
+                    class="ht-font-size-3">
+                    A senha não pode ultrapassar {{ maxLengthPassword }} caracteres
+                </mat-error>
+                <button mat-icon-button matSuffix (click)="hiddenPassword = !hiddenPassword">
+                    <mat-icon>{{ hiddenPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="ht-w-100 ht-mbottom-2">
+                <mat-label>Confirme a senha</mat-label>
+                <input [type]="hiddenConfirmPassword ? 'text' : 'password'" matInput placeholder="Confirme a senha"
+                    formControlName="confirmPassword" (ngModelChange)="updateConfirmValidator()">
+                <mat-error *ngIf="userRegistrationForm?.controls?.['confirmPassword']?.errors?.['required']"
+                    class="ht-font-size-3">
+                    Confirme a senha
+                </mat-error>
+                <mat-error *ngIf="userRegistrationForm?.controls?.['confirmPassword']?.errors?.['confirm']"
+                    class="ht-font-size-3">
+                    Senhas discrepantes
+                </mat-error>
+                <button mat-icon-button matSuffix (click)="hiddenConfirmPassword = !hiddenConfirmPassword">
+                    <mat-icon>{{ hiddenConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+            <div class="ht-text-right">
+                <a href="" mat-button type="button" [routerLink]="['/login']">Cancelar</a>
+                <button class="ht-mleft-1" type="submit" mat-raised-button color="primary" (click)="registerUser()">
+                    Cadastrar
+                </button>
+            </div>
+        </form>
+    </mat-card>
+</div>
