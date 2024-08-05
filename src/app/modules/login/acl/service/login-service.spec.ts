@@ -5,9 +5,9 @@ import { of } from 'rxjs';
 import { LoginService } from './login-service';
 import { LoginProxyService } from '../proxy/login-proxy.service';
 import { LoginAdapterService } from '../adapter/login-adapter.service';
-import { LoginRequestContract } from '../../../../shared/contracts/request/login-request.contract';
-import { LoginResponseContract } from '../../../../shared/contracts/response/login-response.contract';
 import { LoginResponseDto } from '../../../../shared/dto/login/login-response.dto';
+import { LoginRequestContract } from '../../../../shared/contracts/request/login/login-request.contract';
+import { LoginResponseContract } from '../../../../shared/contracts/response/login/login-response.contract';
 
 describe('LoginService', () => {
   let service: LoginService;
@@ -34,14 +34,16 @@ describe('LoginService', () => {
 
   it('login - deve retornar um dto da resposta do login', () => {
 
-    const loginResponseContract: LoginResponseContract = {
-      message: 'Login efetuado com sucesso!'
-    };
+    const loginResponseContract: LoginResponseContract = new LoginResponseContract(
+      'Login efetuado com sucesso!'
+    );
+
     loginProxyServiceSpy.login.and.returnValue(of(loginResponseContract));
-    const loginRequestContract: LoginRequestContract = {
-      email: 'admin@email.com',
-      password: 'admin123',
-    };
+
+    const loginRequestContract: LoginRequestContract = new LoginRequestContract(
+      'admin@email.com',
+      'admin123',
+    );
 
     service.login(loginRequestContract).subscribe(
       loginResponseDto => {

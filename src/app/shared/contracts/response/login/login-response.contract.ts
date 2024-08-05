@@ -1,18 +1,18 @@
-export class LoginResponseDto {
+export class LoginResponseContract {
 
     private _message!: string;
 
     constructor(
-        message: string,
+        message: string
     ) {
         this.message = message;
     }
-
-    get message(): string {
+    
+    public get message() : string {
         return this._message;
     }
 
-    set message(message: string) {
+    public set message(message : string) {
         this._message = message;
     }
 }

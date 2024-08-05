@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LoginProxyService } from './login-proxy.service';
-import { LoginRequestContract } from '../../../../shared/contracts/request/login-request.contract';
+import { LoginRequestContract } from '../../../../shared/contracts/request/login/login-request.contract';
 
 describe('LoginProxyService', () => {
   let service: LoginProxyService;
@@ -20,10 +20,10 @@ describe('LoginProxyService', () => {
   });
 
   it('login - deve retornar mensagem de sucesso após o login', () => {
-    const loginRequestContract: LoginRequestContract = {
-      email: 'admin@email.com',
-      password: 'admin123',
-    };
+    const loginRequestContract: LoginRequestContract = new LoginRequestContract(
+      'admin@email.com',
+      'admin123',
+    );
     service.login(loginRequestContract).subscribe(
       loginResponse => {
         expect(loginResponse.message).toBe('Login efetuado com sucesso!')
