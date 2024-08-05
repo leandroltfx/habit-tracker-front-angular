@@ -2,6 +2,10 @@ import { UserRegistrationRequestContract } from './user-registration-request.con
 
 describe('UserRegistrationRequestContract', () => {
   it('should create an instance', () => {
-    expect(new UserRegistrationRequestContract('username', 'email@email.com', 'password')).toBeTruthy();
+    const userRegistrationRequestContract = new UserRegistrationRequestContract('username', 'email@email.com', 'password');
+    expect(userRegistrationRequestContract).toBeTruthy();
+    expect(userRegistrationRequestContract.username).toBe('username');
+    expect(userRegistrationRequestContract.email).toBe('email@email.com');
+    expect(userRegistrationRequestContract.password).toBe('password');
   });
 });

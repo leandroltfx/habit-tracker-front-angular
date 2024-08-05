@@ -28,7 +28,7 @@ export class LoggedUser {
     }
 }
 
-export class UserRegistrationDto {
+export class UserRegistrationResponseDto {
 
     private _message!: string;
     private _loggedUser!: LoggedUser;
@@ -37,8 +37,8 @@ export class UserRegistrationDto {
         message: string,
         loggedUser: LoggedUser,
     ) {
-        this._message = message;
-        this._loggedUser = loggedUser;
+        this.message = message;
+        this.loggedUser = loggedUser;
     }
 
     public get message(): string {

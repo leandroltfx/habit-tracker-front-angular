@@ -7,8 +7,8 @@ export class LoggedUser {
         username: string,
         email: string,
     ) {
-        this._username = username;
-        this._email = email;
+        this.username = username;
+        this.email = email;
     }
 
     public get username(): string {
@@ -37,8 +37,8 @@ export class UserRegistrationResponseContract {
         message: string,
         loggedUser: LoggedUser,
     ) {
-        this._message = message;
-        this._loggedUser = loggedUser;
+        this.message = message;
+        this.loggedUser = loggedUser;
     }
 
     public get message(): string {

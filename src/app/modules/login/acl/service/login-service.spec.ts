@@ -8,6 +8,7 @@ import { LoginAdapterService } from '../adapter/login-adapter.service';
 import { LoginResponseDto } from '../../../../shared/dto/login/login-response.dto';
 import { LoginRequestContract } from '../../../../shared/contracts/request/login/login-request.contract';
 import { LoginResponseContract } from '../../../../shared/contracts/response/login/login-response.contract';
+import { loginResponseMock } from '../../../../shared/mocks/login-response.mock';
 
 describe('LoginService', () => {
   let service: LoginService;
@@ -38,7 +39,7 @@ describe('LoginService', () => {
       'Login efetuado com sucesso!'
     );
 
-    loginProxyServiceSpy.login.and.returnValue(of(loginResponseContract));
+    loginProxyServiceSpy.login.and.returnValue(of(loginResponseMock));
 
     const loginRequestContract: LoginRequestContract = new LoginRequestContract(
       'admin@email.com',

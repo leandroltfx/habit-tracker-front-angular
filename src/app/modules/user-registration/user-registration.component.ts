@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { UserRegistrationService } from './acl/service/user-registration.service';
+import { UserRegistrationRequestContract } from '../../shared/contracts/request/user-registration/user-registration-request.contract';
+import { UserRegistrationResponseDto } from '../../shared/dto/user-registration/user-registration-response.dto';
+import { MessageService } from '../../core/services/message/message.service';
+
 @Component({
   selector: 'ht-user-registration',
   templateUrl: './user-registration.component.html',
@@ -21,6 +26,8 @@ export class UserRegistrationComponent implements OnInit {
 
   constructor(
     private readonly _formBuilder: FormBuilder,
+    private readonly _userRegistrationService: UserRegistrationService,
+    private readonly _messageService: MessageService,
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +35,22 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   public registerUser(): void {
-    console.log(this.userRegistrationForm.controls);
+    if (!this.userRegistrationForm.valid) return;
+
+    const userRegistrationRequestContract: UserRegistrationRequestContract = new UserRegistrationRequestContract(
+      this.userRegistrationForm.controls['username'].value,
+      this.userRegistrationForm.controls['email'].value,
+      this.userRegistrationForm.controls['password'].value,
+    );
+    this._userRegistrationService.registerUser(
+      userRegistrationRequestContract
+    ).subscribe(
+      {
+        next: (userRegistrationResponseDto: UserRegistrationResponseDto) => {
+          this._messageService.showSuccessMessage(userRegistrationResponseDto.message);
+        }
+      }
+    );
   }
 
   public updateConfirmValidator(): void {

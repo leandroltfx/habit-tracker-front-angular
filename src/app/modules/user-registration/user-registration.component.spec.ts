@@ -10,13 +10,25 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 import { UserRegistrationComponent } from './user-registration.component';
+import { UserRegistrationService } from './acl/service/user-registration.service';
+import { MessageService } from '../../core/services/message/message.service';
+import { LoggedUser, UserRegistrationResponseDto } from 'src/app/shared/dto/user-registration/user-registration-response.dto';
+import { of } from 'rxjs';
 
 describe('UserRegistrationComponent', () => {
   let component: UserRegistrationComponent;
   let fixture: ComponentFixture<UserRegistrationComponent>;
 
+  let userRegistrationServiceSpy: jasmine.SpyObj<UserRegistrationService>;
+  let messageServiceSpy: jasmine.SpyObj<MessageService>;
+
   beforeEach(async () => {
+
+    userRegistrationServiceSpy = jasmine.createSpyObj<UserRegistrationService>('UserRegistrationService', ['registerUser']);
+    messageServiceSpy = jasmine.createSpyObj<MessageService>('MessageService', ['showSuccessMessage']);
+
     await TestBed.configureTestingModule({
+      declarations: [ UserRegistrationComponent ],
       imports: [
         BrowserAnimationsModule,
         ReactiveFormsModule,
@@ -28,7 +40,10 @@ describe('UserRegistrationComponent', () => {
         MatIconModule,
         MatInputModule,
       ],
-      declarations: [ UserRegistrationComponent ]
+      providers: [
+        { provide: UserRegistrationService, useValue: userRegistrationServiceSpy },
+        { provide: MessageService, useValue: messageServiceSpy },
+      ]
     })
     .compileComponents();
 
@@ -39,5 +54,23 @@ describe('UserRegistrationComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('registerUser - deve cadastrar usuário e disparar mensagem de sucesso', () => {
+
+    const userRegistrationResponseDto: UserRegistrationResponseDto = new UserRegistrationResponseDto(
+      'Usuário cadastrado com sucesso!',
+      new LoggedUser('username', 'email@email.com'),
+    );
+    userRegistrationServiceSpy.registerUser.and.returnValue(of(userRegistrationResponseDto));
+
+    component.userRegistrationForm.controls['username'].setValue('username');
+    component.userRegistrationForm.controls['email'].setValue('email@email.com');
+    component.userRegistrationForm.controls['password'].setValue('asd123asd');
+    component.userRegistrationForm.controls['confirmPassword'].setValue('asd123asd');
+
+    component.registerUser();
+
+    expect(messageServiceSpy.showSuccessMessage).toHaveBeenCalledWith('Usuário cadastrado com sucesso!');
   });
 });

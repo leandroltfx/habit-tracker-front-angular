@@ -2,6 +2,10 @@ import { LoggedUser, UserRegistrationResponseContract } from './user-registratio
 
 describe('UserRegistrationResponseContract', () => {
   it('should create an instance', () => {
-    expect(new UserRegistrationResponseContract('message', new LoggedUser('username', 'email@email.com'))).toBeTruthy();
+    const userRegistrationResponseContract = new UserRegistrationResponseContract('message', new LoggedUser('username', 'email@email.com'));
+    expect(userRegistrationResponseContract).toBeTruthy();
+    expect(userRegistrationResponseContract.message).toBe('message');
+    expect(userRegistrationResponseContract.loggedUser.username).toBe('username');
+    expect(userRegistrationResponseContract.loggedUser.email).toBe('email@email.com');
   });
 });
