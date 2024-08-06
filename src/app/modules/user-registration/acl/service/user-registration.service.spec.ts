@@ -5,10 +5,10 @@ import { of } from 'rxjs';
 import { UserRegistrationService } from './user-registration.service';
 import { UserRegistrationProxyService } from '../proxy/user-registration-proxy.service';
 import { UserRegistrationAdapterService } from '../adapter/user-registration-adapter.service';
-import { LoggedUser, UserRegistrationResponseContract } from '../../../../shared/contracts/response/user-registration/user-registration-response.contract';
-import { userRegistrationResponseMock } from '../../../../shared/mocks/user-registration-response.mock';
+import { UserRegistrationResponseContract } from '../../../../shared/contracts/response/user-registration/user-registration-response.contract';
 import { UserRegistrationRequestContract } from '../../../../shared/contracts/request/user-registration/user-registration-request.contract';
 import { UserRegistrationResponseDto } from '../../../../shared/dto/user-registration/user-registration-response.dto';
+import userRegistrationResponseMock from 'src/app/shared/mocks/user-registration-response.mock';
 
 describe('UserRegistrationService', () => {
   let userRegistrationService: UserRegistrationService;
@@ -35,18 +35,17 @@ describe('UserRegistrationService', () => {
 
   it('registerUser - deve retornar um dto na resposta do cadastro de usuário', () => {
 
-    const userRegistrationResponseContract: UserRegistrationResponseContract = new UserRegistrationResponseContract(
-      'Usuário cadastrado com sucesso!',
-      new LoggedUser('username', 'email@email.com')
-    );
+    const userRegistrationResponseContract: UserRegistrationResponseContract = new UserRegistrationResponseContract();
+    userRegistrationResponseContract.message = 'Usuário cadastrado com sucesso!';
+    userRegistrationResponseContract.loggedUser.username = 'username';
+    userRegistrationResponseContract.loggedUser.email = 'email@email.com';
 
     userRegistrationProxyServiceSpy.registerUser.and.returnValue(of(userRegistrationResponseMock));
 
-    const userRegistrationRequestContract: UserRegistrationRequestContract = new UserRegistrationRequestContract(
-      'admin',
-      'admin@email.com',
-      'admin123',
-    );
+    const userRegistrationRequestContract: UserRegistrationRequestContract = new UserRegistrationRequestContract();
+    userRegistrationRequestContract.username = 'admin';
+    userRegistrationRequestContract.email = 'admin@email.com';
+    userRegistrationRequestContract.password = 'admin123';
 
     userRegistrationService.registerUser(userRegistrationRequestContract).subscribe(
       userRegistrationResponseDto => {

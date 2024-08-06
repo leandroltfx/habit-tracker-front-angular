@@ -37,11 +37,10 @@ export class UserRegistrationComponent implements OnInit {
   public registerUser(): void {
     if (!this.userRegistrationForm.valid) return;
 
-    const userRegistrationRequestContract: UserRegistrationRequestContract = new UserRegistrationRequestContract(
-      this.userRegistrationForm.controls['username'].value,
-      this.userRegistrationForm.controls['email'].value,
-      this.userRegistrationForm.controls['password'].value,
-    );
+    const userRegistrationRequestContract: UserRegistrationRequestContract = new UserRegistrationRequestContract();
+    userRegistrationRequestContract.username = this.userRegistrationForm.controls['username'].value;
+    userRegistrationRequestContract.email = this.userRegistrationForm.controls['email'].value;
+    userRegistrationRequestContract.password = this.userRegistrationForm.controls['password'].value;
     this._userRegistrationService.registerUser(
       userRegistrationRequestContract
     ).subscribe(

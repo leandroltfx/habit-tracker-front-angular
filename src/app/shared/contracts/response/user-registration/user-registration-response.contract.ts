@@ -1,15 +1,7 @@
-export class LoggedUser {
+export class LoggedUserResponseContract {
 
     private _username!: string;
     private _email!: string;
-
-    constructor(
-        username: string,
-        email: string,
-    ) {
-        this.username = username;
-        this.email = email;
-    }
 
     public get username(): string {
         return this._username;
@@ -31,14 +23,10 @@ export class LoggedUser {
 export class UserRegistrationResponseContract {
 
     private _message!: string;
-    private _loggedUser!: LoggedUser;
+    private _loggedUser!: LoggedUserResponseContract;
 
-    constructor(
-        message: string,
-        loggedUser: LoggedUser,
-    ) {
-        this.message = message;
-        this.loggedUser = loggedUser;
+    constructor() {
+        this.loggedUser = new LoggedUserResponseContract();
     }
 
     public get message(): string {
@@ -49,11 +37,11 @@ export class UserRegistrationResponseContract {
         this._message = message;
     }
 
-    public get loggedUser(): LoggedUser {
+    public get loggedUser(): LoggedUserResponseContract {
         return this._loggedUser;
     }
 
-    public set loggedUser(loggedUser: LoggedUser) {
+    public set loggedUser(loggedUser: LoggedUserResponseContract) {
         this._loggedUser = loggedUser;
     }
 }

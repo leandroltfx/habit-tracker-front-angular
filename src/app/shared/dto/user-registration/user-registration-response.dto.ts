@@ -1,44 +1,12 @@
-export class LoggedUser {
-
-    private _username!: string;
-    private _email!: string;
-
-    constructor(
-        username: string,
-        email: string,
-    ) {
-        this._username = username;
-        this._email = email;
-    }
-
-    public get username(): string {
-        return this._username;
-    }
-
-    public set username(username: string) {
-        this._username = username;
-    }
-
-    public get email(): string {
-        return this._email;
-    }
-
-    public set email(email: string) {
-        this._email = email;
-    }
-}
+import { LoggedUserDto } from "../logged-user/logged-user.dto";
 
 export class UserRegistrationResponseDto {
 
     private _message!: string;
-    private _loggedUser!: LoggedUser;
+    private _loggedUser!: LoggedUserDto;
 
-    constructor(
-        message: string,
-        loggedUser: LoggedUser,
-    ) {
-        this.message = message;
-        this.loggedUser = loggedUser;
+    constructor() {
+        this._loggedUser = new LoggedUserDto();
     }
 
     public get message(): string {
@@ -49,11 +17,11 @@ export class UserRegistrationResponseDto {
         this._message = message;
     }
 
-    public get loggedUser(): LoggedUser {
+    public get loggedUser(): LoggedUserDto {
         return this._loggedUser;
     }
 
-    public set loggedUser(loggedUser: LoggedUser) {
+    public set loggedUser(loggedUser: LoggedUserDto) {
         this._loggedUser = loggedUser;
     }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { LoggedUser, UserRegistrationResponseDto } from '../../../../shared/dto/user-registration/user-registration-response.dto';
+import { UserRegistrationResponseDto } from '../../../../shared/dto/user-registration/user-registration-response.dto';
 import { UserRegistrationResponseContract } from '../../../../shared/contracts/response/user-registration/user-registration-response.contract';
 
 @Injectable()
@@ -11,16 +11,10 @@ export class UserRegistrationAdapterService {
   userRegistrationResponseContractToDto(
     userRegistrationResponseContract: UserRegistrationResponseContract
   ): UserRegistrationResponseDto {
-
-    const loggedUser: LoggedUser = new LoggedUser(
-      userRegistrationResponseContract.loggedUser.username,
-      userRegistrationResponseContract.loggedUser.email,
-    );
-
-    const userRegistrationResponseDto: UserRegistrationResponseDto = new UserRegistrationResponseDto(
-      userRegistrationResponseContract.message,
-      loggedUser,
-    );
+    const userRegistrationResponseDto: UserRegistrationResponseDto = new UserRegistrationResponseDto();
+    userRegistrationResponseDto.message = userRegistrationResponseContract.message;
+    userRegistrationResponseDto.loggedUser.email = userRegistrationResponseContract.loggedUser.email;
+    userRegistrationResponseDto.loggedUser.username = userRegistrationResponseContract.loggedUser.username;
 
     return userRegistrationResponseDto;
   }

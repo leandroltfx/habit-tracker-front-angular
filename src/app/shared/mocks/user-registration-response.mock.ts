@@ -1,6 +1,9 @@
-import { LoggedUser, UserRegistrationResponseContract } from "../contracts/response/user-registration/user-registration-response.contract";
+import { UserRegistrationResponseContract } from "../contracts/response/user-registration/user-registration-response.contract";
 
-export const userRegistrationResponseMock: UserRegistrationResponseContract = new UserRegistrationResponseContract(
-    'Usuário cadastrado com sucesso!',
-    new LoggedUser('username', 'admin@email.com')
-);
+const userRegistrationResponseMock: UserRegistrationResponseContract = new UserRegistrationResponseContract();
+
+userRegistrationResponseMock.message = 'Usuário cadastrado com sucesso!';
+userRegistrationResponseMock.loggedUser.username = 'username';
+userRegistrationResponseMock.loggedUser.email = 'email@email.com';
+
+export default userRegistrationResponseMock;

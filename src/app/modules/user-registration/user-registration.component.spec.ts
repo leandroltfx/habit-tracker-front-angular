@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { UserRegistrationComponent } from './user-registration.component';
 import { UserRegistrationService } from './acl/service/user-registration.service';
 import { MessageService } from '../../core/services/message/message.service';
-import { LoggedUser, UserRegistrationResponseDto } from 'src/app/shared/dto/user-registration/user-registration-response.dto';
+import { UserRegistrationResponseDto } from 'src/app/shared/dto/user-registration/user-registration-response.dto';
 import { of } from 'rxjs';
 
 describe('UserRegistrationComponent', () => {
@@ -58,10 +58,11 @@ describe('UserRegistrationComponent', () => {
 
   it('registerUser - deve cadastrar usuário e disparar mensagem de sucesso', () => {
 
-    const userRegistrationResponseDto: UserRegistrationResponseDto = new UserRegistrationResponseDto(
-      'Usuário cadastrado com sucesso!',
-      new LoggedUser('username', 'email@email.com'),
-    );
+    const userRegistrationResponseDto: UserRegistrationResponseDto = new UserRegistrationResponseDto();
+    userRegistrationResponseDto.message = 'Usuário cadastrado com sucesso!';
+    userRegistrationResponseDto.loggedUser.username = 'username';
+    userRegistrationResponseDto.loggedUser.email = 'email@email.com';
+
     userRegistrationServiceSpy.registerUser.and.returnValue(of(userRegistrationResponseDto));
 
     component.userRegistrationForm.controls['username'].setValue('username');
