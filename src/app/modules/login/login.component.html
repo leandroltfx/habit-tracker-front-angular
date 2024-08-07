@@ -12,7 +12,7 @@
                 <mat-label>Senha</mat-label>
                 <input [type]="hiddenPassword ? 'text' : 'password'" matInput placeholder="Informe sua senha"
                     formControlName="password">
-                <button mat-icon-button matSuffix (click)="hiddenPassword = !hiddenPassword">
+                <button type="button" mat-icon-button matSuffix (click)="hiddenPassword = !hiddenPassword">
                     <mat-icon>{{ hiddenPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
             </mat-form-field>

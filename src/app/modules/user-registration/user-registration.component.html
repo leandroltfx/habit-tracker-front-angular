@@ -54,7 +54,7 @@
                     class="ht-font-size-3">
                     A senha não pode ultrapassar {{ maxLengthPassword }} caracteres
                 </mat-error>
-                <button mat-icon-button matSuffix (click)="hiddenPassword = !hiddenPassword">
+                <button type="button" mat-icon-button matSuffix (click)="hiddenPassword = !hiddenPassword">
                     <mat-icon>{{ hiddenPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
             </mat-form-field>
@@ -70,7 +70,7 @@
                     class="ht-font-size-3">
                     Senhas discrepantes
                 </mat-error>
-                <button mat-icon-button matSuffix (click)="hiddenConfirmPassword = !hiddenConfirmPassword">
+                <button type="button" mat-icon-button matSuffix (click)="hiddenConfirmPassword = !hiddenConfirmPassword">
                     <mat-icon>{{ hiddenConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
             </mat-form-field>
