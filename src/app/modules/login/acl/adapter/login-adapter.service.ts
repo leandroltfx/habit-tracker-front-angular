@@ -11,9 +11,8 @@ export class LoginAdapterService {
   public loginResponseContractToDto(
     loginResponseContract: LoginResponseContract,
   ): LoginResponseDto {
-    const loginResponseDto = new LoginResponseDto(
-      loginResponseContract.message
-    );
+    const loginResponseDto = new LoginResponseDto();
+    loginResponseDto.message = loginResponseContract.message;
     return loginResponseDto;
   }
 }

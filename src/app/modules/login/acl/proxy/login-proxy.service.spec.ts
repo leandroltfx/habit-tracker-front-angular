@@ -20,10 +20,9 @@ describe('LoginProxyService', () => {
   });
 
   it('login - deve retornar mensagem de sucesso após o login', () => {
-    const loginRequestContract: LoginRequestContract = new LoginRequestContract(
-      'admin@email.com',
-      'admin123',
-    );
+    const loginRequestContract: LoginRequestContract = new LoginRequestContract();
+    loginRequestContract.email = 'admin@email.com';
+    loginRequestContract.password = 'admin123';
     service.login(loginRequestContract).subscribe(
       loginResponse => {
         expect(loginResponse.message).toBe('Login efetuado com sucesso!')

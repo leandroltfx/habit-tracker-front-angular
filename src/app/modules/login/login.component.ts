@@ -26,10 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
-    const loginRequestContract: LoginRequestContract = new LoginRequestContract(
-      this.loginForm.controls['email'].value,
-      this.loginForm.controls['password'].value,
-    );
+    const loginRequestContract: LoginRequestContract = new LoginRequestContract();
+    loginRequestContract.email = this.loginForm.controls['email'].value,
+    loginRequestContract.password = this.loginForm.controls['password'].value,
 
     this._loginService.login(
       loginRequestContract

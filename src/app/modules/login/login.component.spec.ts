@@ -61,7 +61,9 @@ describe('LoginComponent', () => {
 
   it('login - deve efetuar login e disparar mensagem de sucesso', () => {
 
-    const loginResponseDto: LoginResponseDto = new LoginResponseDto('Login efetuado com sucesso!');
+    const loginResponseDto: LoginResponseDto = new LoginResponseDto();
+    loginResponseDto.message = 'Login efetuado com sucesso!';
+
     loginServiceSpy.login.and.returnValue(of(loginResponseDto));
 
     component.login();

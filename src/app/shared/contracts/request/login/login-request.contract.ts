@@ -3,14 +3,6 @@ export class LoginRequestContract {
     private _email!: string;
     private _password!: string;
 
-    constructor(
-        email: string,
-        password: string,
-    ) {
-        this.email = email;
-        this.password = password;
-    }
-
     public get email(): string {
         return this._email;
     }

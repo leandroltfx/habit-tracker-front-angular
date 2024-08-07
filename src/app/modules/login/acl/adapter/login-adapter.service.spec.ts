@@ -21,9 +21,8 @@ describe('LoginAdapterService', () => {
   });
 
   it('loginResponseContractToDto - deve transformar contrato de resposta do login em dto', () => {
-    const loginResponseContract: LoginResponseContract = new LoginResponseContract(
-      'Login efetuado com sucesso!'
-    );
+    const loginResponseContract: LoginResponseContract = new LoginResponseContract();
+    loginResponseContract.message = 'Login efetuado com sucesso!';
     const loginResponseDto: LoginResponseDto = service.loginResponseContractToDto(loginResponseContract);
     expect(loginResponseDto.message).toBe('Login efetuado com sucesso!');
   });
