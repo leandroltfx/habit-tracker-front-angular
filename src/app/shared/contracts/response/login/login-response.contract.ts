@@ -23,11 +23,7 @@ export class LoggedUserResponseContract {
 export class LoginResponseContract {
 
     private _message!: string;
-    private _loggedUser!: LoggedUserResponseContract;
-
-    constructor() {
-        this.loggedUser = new LoggedUserResponseContract();
-    }
+    private _loggedUser: LoggedUserResponseContract = new LoggedUserResponseContract();
 
     public get message(): string {
         return this._message;
@@ -39,9 +35,5 @@ export class LoginResponseContract {
 
     public get loggedUser(): LoggedUserResponseContract {
         return this._loggedUser;
-    }
-
-    public set loggedUser(loggedUser: LoggedUserResponseContract) {
-        this._loggedUser = loggedUser;
     }
 }

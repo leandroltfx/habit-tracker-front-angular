@@ -3,11 +3,7 @@ import { LoggedUserDto } from "../logged-user/logged-user.dto";
 export class UserRegistrationResponseDto {
 
     private _message!: string;
-    private _loggedUser!: LoggedUserDto;
-
-    constructor() {
-        this._loggedUser = new LoggedUserDto();
-    }
+    private _loggedUser: LoggedUserDto = new LoggedUserDto();
 
     public get message(): string {
         return this._message;
@@ -19,9 +15,5 @@ export class UserRegistrationResponseDto {
 
     public get loggedUser(): LoggedUserDto {
         return this._loggedUser;
-    }
-
-    public set loggedUser(loggedUser: LoggedUserDto) {
-        this._loggedUser = loggedUser;
     }
 }
