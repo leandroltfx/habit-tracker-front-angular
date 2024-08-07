@@ -13,6 +13,9 @@ export class LoginAdapterService {
   ): LoginResponseDto {
     const loginResponseDto = new LoginResponseDto();
     loginResponseDto.message = loginResponseContract.message;
+    loginResponseDto.loggedUser.email = loginResponseContract.loggedUser.email;
+    loginResponseDto.loggedUser.username = loginResponseContract.loggedUser.username;
+
     return loginResponseDto;
   }
 }
