@@ -8,15 +8,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
-import { LoginRoutingModule } from './login-routing.module';
-import { LoginComponent } from './login.component';
-import { LoginAdapterService } from './acl/adapter/login-adapter.service';
-import { LoginProxyService } from './acl/proxy/login-proxy.service';
-import { LoginService } from './acl/service/login-service';
+import { UserRegistrationRoutingModule } from './user-registration-routing.module';
+import { UserRegistrationComponent } from './user-registration.component';
+import { UserRegistrationProxyService } from './acl/proxy/user-registration-proxy.service';
+import { UserRegistrationAdapterService } from './acl/adapter/user-registration-adapter.service';
+import { UserRegistrationService } from './acl/service/user-registration.service';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    UserRegistrationComponent,
   ],
   imports: [
     CommonModule,
@@ -28,12 +28,12 @@ import { LoginService } from './acl/service/login-service';
     MatIconModule,
     MatInputModule,
 
-    LoginRoutingModule,
+    UserRegistrationRoutingModule,
   ],
   providers: [
-    LoginProxyService,
-    LoginAdapterService,
-    LoginService,
-  ],
+    UserRegistrationProxyService,
+    UserRegistrationAdapterService,
+    UserRegistrationService,
+  ]
 })
-export class LoginModule { }
+export class UserRegistrationModule { }
