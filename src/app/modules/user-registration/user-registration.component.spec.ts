@@ -2,6 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
+
+import { of } from 'rxjs';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -12,12 +15,12 @@ import { MatInputModule } from '@angular/material/input';
 import { UserRegistrationComponent } from './user-registration.component';
 import { UserRegistrationService } from './acl/service/user-registration.service';
 import { MessageService } from '../../core/services/message/message.service';
-import { UserRegistrationResponseDto } from 'src/app/shared/dto/user-registration/user-registration-response.dto';
-import { of } from 'rxjs';
+import { UserRegistrationResponseDto } from '../../shared/dto/user-registration/user-registration-response.dto';
 
 describe('UserRegistrationComponent', () => {
   let component: UserRegistrationComponent;
   let fixture: ComponentFixture<UserRegistrationComponent>;
+  let router: Router;
 
   let userRegistrationServiceSpy: jasmine.SpyObj<UserRegistrationService>;
   let messageServiceSpy: jasmine.SpyObj<MessageService>;
@@ -49,6 +52,7 @@ describe('UserRegistrationComponent', () => {
 
     fixture = TestBed.createComponent(UserRegistrationComponent);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -56,7 +60,9 @@ describe('UserRegistrationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('registerUser - deve cadastrar usuário e disparar mensagem de sucesso', () => {
+  it('registerUser - deve cadastrar usuário, disparar mensagem de sucesso e rotear para a home', () => {
+
+    const spyNavigate = spyOn(router, 'navigate');
 
     const userRegistrationResponseDto: UserRegistrationResponseDto = new UserRegistrationResponseDto();
     userRegistrationResponseDto.message = 'Usuário cadastrado com sucesso!';
@@ -73,5 +79,6 @@ describe('UserRegistrationComponent', () => {
     component.registerUser();
 
     expect(messageServiceSpy.showSuccessMessage).toHaveBeenCalledWith('Usuário cadastrado com sucesso!');
+    expect(spyNavigate).toHaveBeenCalledWith(['/home']);
   });
 });

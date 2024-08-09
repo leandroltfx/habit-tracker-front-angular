@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 
 import { of } from 'rxjs';
 
@@ -19,6 +20,7 @@ import { LoginResponseDto } from '../../shared/dto/login/login-response.dto';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let router: Router;
 
   let loginServiceSpy: jasmine.SpyObj<LoginService>;
   let messageServiceSpy: jasmine.SpyObj<MessageService>;
@@ -52,6 +54,7 @@ describe('LoginComponent', () => {
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -59,7 +62,9 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('login - deve efetuar login e disparar mensagem de sucesso', () => {
+  it('login - deve efetuar login, disparar mensagem de sucesso e rotear para a home', () => {
+
+    const spyNavigate = spyOn(router, 'navigate');
 
     const loginResponseDto: LoginResponseDto = new LoginResponseDto();
     loginResponseDto.message = 'Login efetuado com sucesso!';
@@ -69,5 +74,6 @@ describe('LoginComponent', () => {
     component.login();
 
     expect(messageServiceSpy.showSuccessMessage).toHaveBeenCalledWith('Login efetuado com sucesso!');
+    expect(spyNavigate).toHaveBeenCalledWith(['/home']);
   });
 });

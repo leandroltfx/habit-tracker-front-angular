@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { UserRegistrationService } from './acl/service/user-registration.service';
 import { UserRegistrationRequestContract } from '../../shared/contracts/request/user-registration/user-registration-request.contract';
@@ -28,6 +29,7 @@ export class UserRegistrationComponent implements OnInit {
     private readonly _formBuilder: FormBuilder,
     private readonly _userRegistrationService: UserRegistrationService,
     private readonly _messageService: MessageService,
+    private readonly _router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class UserRegistrationComponent implements OnInit {
       {
         next: (userRegistrationResponseDto: UserRegistrationResponseDto) => {
           this._messageService.showSuccessMessage(userRegistrationResponseDto.message);
+          this._router.navigate(['/home']);
         }
       }
     );

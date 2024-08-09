@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { LoginService } from './acl/service/login-service';
 import { MessageService } from '../../core/services/message/message.service';
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
     private readonly _formBuilder: FormBuilder,
     private readonly _loginService: LoginService,
     private readonly _messageService: MessageService,
+    private readonly _router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +36,10 @@ export class LoginComponent implements OnInit {
       loginRequestContract
     ).subscribe(
       {
-        next: dataSuccess => this._messageService.showSuccessMessage(dataSuccess.message)
+        next: dataSuccess => {
+          this._messageService.showSuccessMessage(dataSuccess.message);
+          this._router.navigate(['/home']);
+        }
       }
     )
   }
