@@ -3,6 +3,8 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.ht-center { margin: 0 auto; }
+
 .ht-text-left   { text-align: left !important; }
 .ht-text-center { text-align: center !important; }
 .ht-text-right  { text-align: right !important; }
