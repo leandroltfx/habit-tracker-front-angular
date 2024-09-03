@@ -25,7 +25,7 @@ import { LoginComponent } from './login.component';
     MatInputModule,
     MatIconModule,
 
-  LoginRoutingModule,
+    LoginRoutingModule,
   ]
 })
 export class LoginModule { }
