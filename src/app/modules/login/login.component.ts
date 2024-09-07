@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { LoginService } from './acl/service/login.service';
+import { LoginResponseDto } from './dto/login-response.dto';
+
 @Component({
   selector: 'ht-login',
   templateUrl: './login.component.html',
@@ -13,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private readonly _formBuilder: FormBuilder,
+    private readonly _loginService: LoginService,
   ) { }
 
   ngOnInit(): void {
@@ -20,7 +24,12 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
-    console.log(this.loginForm.controls);
+    this._loginService.login(
+      this.loginForm.controls['email'].value,
+      this.loginForm.controls['password'].value,
+    ).subscribe(
+      (loginResponseDto: LoginResponseDto) => { }
+    );
   }
 
   private _buildLoginForm(): FormGroup {

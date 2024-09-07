@@ -10,6 +10,10 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import { LoginProxyService } from './acl/proxy/login-proxy.service';
+import { LoginService } from './acl/service/login.service';
+import { LoginAdapterService } from './acl/adapter/login-adapter.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,7 @@ import { LoginComponent } from './login.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
     MatCardModule,
     MatButtonModule,
@@ -26,6 +31,11 @@ import { LoginComponent } from './login.component';
     MatIconModule,
 
     LoginRoutingModule,
+  ],
+  providers: [
+    LoginService,
+    LoginAdapterService,
+    LoginProxyService,
   ]
 })
 export class LoginModule { }

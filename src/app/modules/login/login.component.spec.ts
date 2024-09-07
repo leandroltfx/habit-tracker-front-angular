@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
 import { LoginComponent } from './login.component';
+import { LoginService } from './acl/service/login.service';
+import { LoginServiceStub } from './stubs/login.service.stub';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -27,6 +29,9 @@ describe('LoginComponent', () => {
         MatInputModule,
         MatIconModule,
       ],
+      providers: [
+        { provide: LoginService, useClass: LoginServiceStub },
+      ]
     })
     .compileComponents();
 
