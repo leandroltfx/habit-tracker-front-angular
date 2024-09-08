@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { LoginService } from './acl/service/login.service';
-import { LoginResponseDto } from './dto/login-response.dto';
+import { LoginResponseDto } from './models/dto/login-response.dto';
 
 @Component({
   selector: 'ht-login',

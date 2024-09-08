@@ -4,8 +4,8 @@ import { map, Observable } from 'rxjs';
 
 import { LoginAdapterService } from '../adapter/login-adapter.service';
 import { LoginProxyService } from '../proxy/login-proxy.service';
-import { LoginResponseContract } from '../../contracts/response/login-response.contract';
-import { LoginResponseDto } from '../../dto/login-response.dto';
+import { LoginResponseDto } from '../../models/dto/login-response.dto';
+import { LoginResponseContract } from '../../models/contracts/response/login-response.contract';
 
 @Injectable()
 export class LoginService {

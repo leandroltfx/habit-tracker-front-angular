@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { LoginRequestContract } from '../../contracts/request/login-request.contract';
-import { LoginResponseContract } from '../../contracts/response/login-response.contract';
-import { LoginResponseDto } from '../../dto/login-response.dto';
+import { LoginRequestContract } from '../../models/contracts/request/login-request.contract';
+import { LoginResponseContract } from '../../models/contracts/response/login-response.contract';
+import { LoginResponseDto } from '../../models/dto/login-response.dto';
 
 @Injectable()
 export class LoginAdapterService {

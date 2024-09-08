@@ -2,6 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { LoginProxyService } from './login-proxy.service';
+import { LoginRequestContract } from '../../models/contracts/request/login-request.contract';
+import { LoginResponseContract } from '../../models/contracts/response/login-response.contract';
 
 describe('LoginProxyService', () => {
   let service: LoginProxyService;
@@ -20,5 +22,22 @@ describe('LoginProxyService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('login - deve devolver um objeto do tipo LoginResponseContract', () => {
+
+    const loginRequestContract: LoginRequestContract = new LoginRequestContract();
+    loginRequestContract.email = 'admin@email.com';
+    loginRequestContract.password = 'admin123';
+
+    service.login(loginRequestContract).subscribe(
+      loginResponseContract => {
+        expect(loginResponseContract instanceof LoginResponseContract).toBeTrue();
+        expect(loginResponseContract.message).toBe('Login efetuado com sucesso!');
+        expect(loginResponseContract.loggedUser.id).toBe(1);
+        expect(loginResponseContract.loggedUser.username).toBe('Admin');
+        expect(loginResponseContract.loggedUser.email).toBe('admin@email.com');
+      }
+    );
   });
 });

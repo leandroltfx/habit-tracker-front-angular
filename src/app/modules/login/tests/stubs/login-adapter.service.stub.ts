@@ -1,5 +1,5 @@
-import { LoginRequestContract } from "../contracts/request/login-request.contract";
-import { LoginResponseDto } from "../dto/login-response.dto";
+import { LoginRequestContract } from "../../models/contracts/request/login-request.contract";
+import { LoginResponseDto } from "../../models/dto/login-response.dto";
 import loginResponseMock from "../mocks/login-response.mock";
 
 export class LoginAdapterServiceStub {

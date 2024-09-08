@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { LoginRequestContract } from '../../contracts/request/login-request.contract';
-import { LoginResponseContract } from '../../contracts/response/login-response.contract';
-import loginResponseMock from '../../mocks/login-response.mock';
+import loginResponseMock from '../../tests/mocks/login-response.mock';
+import { LoginRequestContract } from '../../models/contracts/request/login-request.contract';
+import { LoginResponseContract } from '../../models/contracts/response/login-response.contract';
 
 @Injectable()
 export class LoginProxyService {
@@ -20,7 +20,6 @@ export class LoginProxyService {
     loginRequestContract: LoginRequestContract,
   ): Observable<LoginResponseContract> {
     // return this._httpClient.post(`${this._basePath}/login`, loginRequestContract);
-    const x: LoginResponseContract = new LoginResponseContract()
     return new Observable<LoginResponseContract>(observer => observer.next(loginResponseMock));
   }
 }
