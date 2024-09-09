@@ -34,8 +34,8 @@ describe('LoginService', () => {
         expect(loginResponseDto.message).toBe('Login efetuado com sucesso!');
         expect(loginResponseDto.loggedUser instanceof LoggedUser).toBeTrue();
         expect(loginResponseDto.loggedUser.id).toBe(1);
-        expect(loginResponseDto.loggedUser.username).toBe('username');
-        expect(loginResponseDto.loggedUser.email).toBe('username@email.com');
+        expect(loginResponseDto.loggedUser.username).toBe('Admin');
+        expect(loginResponseDto.loggedUser.email).toBe('admin@email.com');
       }
     );
   });

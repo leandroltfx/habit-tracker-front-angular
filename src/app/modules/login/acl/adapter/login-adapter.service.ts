@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { LoginRequestContract } from '../../models/contracts/request/login-request.contract';
 import { LoginResponseContract } from '../../models/contracts/response/login-response.contract';
 import { LoginResponseDto } from '../../models/dto/login-response.dto';
@@ -8,7 +9,7 @@ export class LoginAdapterService {
 
   constructor() { }
 
-  toLoginRequestContract(
+  public toLoginRequestContract(
     email: string,
     password: string,
   ): LoginRequestContract {
@@ -18,7 +19,7 @@ export class LoginAdapterService {
     return loginRequestContract;
   }
 
-  toLoginResponseDto(
+  public toLoginResponseDto(
     loginResponseContract: LoginResponseContract
   ): LoginResponseDto {
     const loginResponseDto: LoginResponseDto = new LoginResponseDto();

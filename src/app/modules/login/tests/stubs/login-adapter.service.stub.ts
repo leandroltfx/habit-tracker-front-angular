@@ -4,14 +4,14 @@ import loginResponseMock from "../mocks/login-response.mock";
 
 export class LoginAdapterServiceStub {
 
-    toLoginRequestContract() {
+    public toLoginRequestContract() {
         const loginRequestContract = new LoginRequestContract();
         loginRequestContract.email = 'admin@email.com';
         loginRequestContract.password = 'admin123';
         return loginRequestContract;
     }
 
-    toLoginResponseDto() {
+    public toLoginResponseDto() {
         const loginResponseDto: LoginResponseDto = new LoginResponseDto();
         loginResponseDto.message = loginResponseMock.message;
         loginResponseDto.loggedUser = loginResponseMock.loggedUser;

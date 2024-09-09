@@ -5,7 +5,7 @@ import { LoginResponseDto } from "../../models/dto/login-response.dto";
 
 export class LoginServiceStub {
 
-    login() {
+    public login() {
         const loginResponseDto: LoginResponseDto = new LoginResponseDto();
         loginResponseDto.message = loginResponseMock.message;
         loginResponseDto.loggedUser = loginResponseMock.loggedUser;

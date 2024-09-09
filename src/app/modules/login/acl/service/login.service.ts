@@ -15,7 +15,7 @@ export class LoginService {
     private readonly _loginProxyService: LoginProxyService,
   ) { }
 
-  login(
+  public login(
     email: string,
     password: string,
   ): Observable<LoginResponseDto> {

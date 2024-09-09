@@ -16,7 +16,7 @@ export class LoginProxyService {
     private readonly _httpClient: HttpClient,
   ) { }
 
-  login(
+  public login(
     loginRequestContract: LoginRequestContract,
   ): Observable<LoginResponseContract> {
     // return this._httpClient.post(`${this._basePath}/login`, loginRequestContract);

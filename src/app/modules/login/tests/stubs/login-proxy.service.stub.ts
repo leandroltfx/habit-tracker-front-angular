@@ -4,7 +4,7 @@ import loginResponseMock from "../mocks/login-response.mock";
 
 export class LoginProxyServiceStub {
 
-    login() {
+    public login() {
         return of(loginResponseMock);
     }
 
