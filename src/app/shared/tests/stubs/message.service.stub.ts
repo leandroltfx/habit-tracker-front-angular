@@ -1,4 +1,4 @@
-import { MessageType } from "../../../core/models/types/message.type";
+import { MessageType } from "../../types/message/message.type";
 
 export class MessageServiceStub {
 

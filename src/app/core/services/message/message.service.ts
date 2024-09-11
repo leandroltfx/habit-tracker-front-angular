@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
-import { MessageType } from '../../models/types/message.type';
+import { MessageType } from '../../../shared/types/message/message.type';
 
 @Injectable()
 export class MessageService {
