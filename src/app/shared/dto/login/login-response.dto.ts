@@ -1,6 +1,6 @@
-import { LoggedUser } from "../../classes/logged-user/logged-user.model";
+import { LoggedUser } from "../../models/logged-user/logged-user.model";
 
-export class LoginResponseContract {
+export class LoginResponseDto {
 
     #message!: string;
     #loggedUser!: LoggedUser;

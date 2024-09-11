@@ -3,10 +3,10 @@ import { TestBed } from '@angular/core/testing';
 import { LoginService } from './login.service';
 import { LoginAdapterService } from '../adapter/login-adapter.service';
 import { LoginProxyService } from '../proxy/login-proxy.service';
-import { LoginAdapterServiceStub } from '../../tests/stubs/login-adapter.service.stub';
-import { LoginProxyServiceStub } from '../../tests/stubs/login-proxy.service.stub';
-import { LoginResponseDto } from '../../models/dto/login-response.dto';
-import { LoggedUser } from '../../models/classes/logged-user/logged-user.model';
+import { LoggedUser } from '../../../../shared/models/logged-user/logged-user.model';
+import { LoginAdapterServiceStub } from '../../../../shared/tests/stubs/login-adapter.service.stub';
+import { LoginProxyServiceStub } from '../../../../shared/tests/stubs/login-proxy.service.stub';
+import { LoginResponseDto } from '../../../../shared/dto/login/login-response.dto';
 
 describe('LoginService', () => {
   let service: LoginService;

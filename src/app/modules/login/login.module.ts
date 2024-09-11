@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,7 +14,6 @@ import { LoginComponent } from './login.component';
 import { LoginProxyService } from './acl/proxy/login-proxy.service';
 import { LoginService } from './acl/service/login.service';
 import { LoginAdapterService } from './acl/adapter/login-adapter.service';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

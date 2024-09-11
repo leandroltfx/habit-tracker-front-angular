@@ -1,7 +1,7 @@
 import { of } from "rxjs";
 
+import { LoginResponseDto } from "../../dto/login/login-response.dto";
 import loginResponseMock from "../mocks/login-response.mock";
-import { LoginResponseDto } from "../../models/dto/login-response.dto";
 
 export class LoginServiceStub {
 

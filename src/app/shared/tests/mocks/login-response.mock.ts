@@ -1,5 +1,5 @@
-import { LoggedUser } from "../../models/classes/logged-user/logged-user.model";
-import { LoginResponseContract } from "../../models/contracts/response/login-response.contract";
+import { LoginResponseContract } from "../../contracts/response/login/login-response.contract";
+import { LoggedUser } from "../../models/logged-user/logged-user.model";
 
 const loggedUserMock: LoggedUser = new LoggedUser();
 loggedUserMock.id = 1;

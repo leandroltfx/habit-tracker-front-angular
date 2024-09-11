@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import loginResponseMock from '../../tests/mocks/login-response.mock';
-import { LoginRequestContract } from '../../models/contracts/request/login-request.contract';
-import { LoginResponseContract } from '../../models/contracts/response/login-response.contract';
+import { LoginRequestContract } from '../../../../shared/contracts/request/login/login-request.contract';
+import { LoginResponseContract } from '../../../../shared/contracts/response/login/login-response.contract';
+import loginResponseMock from '../../../../shared/tests/mocks/login-response.mock';
 
 @Injectable()
 export class LoginProxyService {

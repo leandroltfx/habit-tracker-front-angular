@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LoginAdapterService } from './login-adapter.service';
-import { LoggedUser } from '../../models/classes/logged-user/logged-user.model';
-import { LoginRequestContract } from '../../models/contracts/request/login-request.contract';
-import { LoginResponseContract } from '../../models/contracts/response/login-response.contract';
-import { LoginResponseDto } from '../../models/dto/login-response.dto';
+import { LoggedUser } from '../../../../shared/models/logged-user/logged-user.model';
+import { LoginRequestContract } from '../../../../shared/contracts/request/login/login-request.contract';
+import { LoginResponseContract } from '../../../../shared/contracts/response/login/login-response.contract';
+import { LoginResponseDto } from '../../../../shared/dto/login/login-response.dto';
 
 describe('LoginAdapterService', () => {
   let service: LoginAdapterService;

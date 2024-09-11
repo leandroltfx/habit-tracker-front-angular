@@ -1,4 +1,4 @@
-import { LoginResponseContract } from './login-response.contract';
+import { LoginResponseContract } from "./login-response.contract";
 
 describe('LoginResponseContract', () => {
   it('should create an instance', () => {

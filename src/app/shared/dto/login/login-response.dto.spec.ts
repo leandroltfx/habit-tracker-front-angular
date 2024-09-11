@@ -1,4 +1,4 @@
-import { LoginResponseDto } from './login-response.dto';
+import { LoginResponseDto } from "./login-response.dto";
 
 describe('LoginResponseDto', () => {
   it('should create an instance', () => {

@@ -10,10 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { LoginComponent } from './login.component';
 import { LoginService } from './acl/service/login.service';
-import { LoginServiceStub } from './tests/stubs/login.service.stub';
-import { MessageServiceStub } from './tests/stubs/message.service.stub';
 import { MessageService } from '../../core/services/message/message.service';
-import { of } from 'rxjs';
+import { LoginServiceStub } from '../../shared/tests/stubs/login.service.stub';
+import { MessageServiceStub } from '../../shared/tests/stubs/message.service.stub';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

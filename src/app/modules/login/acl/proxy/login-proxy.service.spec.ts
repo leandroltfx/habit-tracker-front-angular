@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { LoginProxyService } from './login-proxy.service';
-import { LoginRequestContract } from '../../models/contracts/request/login-request.contract';
-import { LoginResponseContract } from '../../models/contracts/response/login-response.contract';
+import { LoginRequestContract } from '../../../../shared/contracts/request/login/login-request.contract';
+import { LoginResponseContract } from '../../../../shared/contracts/response/login/login-response.contract';
 
 describe('LoginProxyService', () => {
   let service: LoginProxyService;
