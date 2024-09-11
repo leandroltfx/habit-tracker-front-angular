@@ -1,0 +1,24 @@
+<mat-card class="ht-w-30 ht-center ht-mtop-5">
+    <mat-card-title class="ht-text-center">Habit Tracker</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="loginForm" (submit)="login()" class="ht-flex ht-flex-col">
+            <mat-form-field appearance="standard" class="ht-w-100">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+                <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Informe seu email</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="standard" class="ht-w-100">
+                <mat-label>Senha</mat-label>
+                <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password">
+                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Informe sua senha</mat-error>
+                <button mat-icon-button matSuffix (click)="showPassword = !showPassword" type="button" tabindex="-1">
+                    <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+            <div class="ht-flex ht-flex-row-rev ht-gap-1">
+                <button mat-raised-button color="primary" type="submit">Login</button>
+                <button mat-button type="button">Cadastre-se</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

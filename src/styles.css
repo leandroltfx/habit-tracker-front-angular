@@ -1,1 +1,202 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.success { background-color: #009440; color: #ffffff; }
+.error { background-color: #ff0000; color: #ffffff; }
+.warning { background-color: #eead2d; color: #ffffff; }
+
+.ht-center { margin: 0 auto; }
+
+.ht-text-left   { text-align: left !important; }
+.ht-text-center { text-align: center !important; }
+.ht-text-right  { text-align: right !important; }
+.ht-text-justify{ text-align: justify !important; }
+
+.ht-fw-regular { font-weight: 400 !important; }
+.ht-fw-bold    { font-weight: 700 !important; }
+.ht-fw-bolder  { font-weight: 900 !important; }
+
+.ht-overflow-auto  { overflow: auto !important; }
+.ht-overflow-hidden{ overflow: hidden !important; }
+.ht-overflow-scroll{ overflow: scroll !important; }
+
+.ht-w-5  { width: 5% !important; }
+.ht-w-10 { width: 10% !important; }
+.ht-w-15 { width: 15% !important; }
+.ht-w-20 { width: 20% !important; }
+.ht-w-25 { width: 25% !important; }
+.ht-w-30 { width: 30% !important; }
+.ht-w-35 { width: 35% !important; }
+.ht-w-40 { width: 40% !important; }
+.ht-w-45 { width: 45% !important; }
+.ht-w-50 { width: 50% !important; }
+.ht-w-55 { width: 55% !important; }
+.ht-w-60 { width: 60% !important; }
+.ht-w-65 { width: 65% !important; }
+.ht-w-70 { width: 70% !important; }
+.ht-w-75 { width: 75% !important; }
+.ht-w-80 { width: 80% !important; }
+.ht-w-85 { width: 85% !important; }
+.ht-w-90 { width: 90% !important; }
+.ht-w-95 { width: 95% !important; }
+.ht-w-100 { width: 100% !important; }
+
+.ht-p-1  { padding: 8px !important; }
+.ht-p-2  { padding: 16px !important; }
+.ht-p-3  { padding: 24px !important; }
+.ht-p-4  { padding: 32px !important; }
+.ht-p-5  { padding: 40px !important; }
+
+.ht-px-1  { padding-left: 8px !important; padding-right: 8px !important; }
+.ht-px-2  { padding-left: 16px !important; padding-right: 16px !important; }
+.ht-px-3  { padding-left: 24px !important; padding-right: 24px !important; }
+.ht-px-4  { padding-left: 32px !important; padding-right: 32px !important; }
+.ht-px-5  { padding-left: 40px !important; padding-right: 40px !important; }
+
+.ht-py-1  { padding-top: 8px !important; padding-bottom: 8px !important; }
+.ht-py-2  { padding-top: 16px !important; padding-bottom: 16px !important; }
+.ht-py-3  { padding-top: 24px !important; padding-bottom: 24px !important; }
+.ht-py-4  { padding-top: 32px !important; padding-bottom: 32px !important; }
+.ht-py-5  { padding-top: 40px !important; padding-bottom: 40px !important; }
+
+.ht-ptop-1  { padding-top: 1.1rem !important; }
+.ht-ptop-2  { padding-top: 1.2rem !important; }
+.ht-ptop-3  { padding-top: 1.3rem !important; }
+.ht-ptop-4  { padding-top: 1.4rem !important; }
+.ht-ptop-5  { padding-top: 1.5rem !important; }
+
+.ht-pbottom-1  { padding-bottom: 1.1rem !important; }
+.ht-pbottom-2  { padding-bottom: 1.2rem !important; }
+.ht-pbottom-3  { padding-bottom: 1.3rem !important; }
+.ht-pbottom-4  { padding-bottom: 1.4rem !important; }
+.ht-pbottom-5  { padding-bottom: 1.5rem !important; }
+
+.ht-pleft-1  { padding-left: 1.1rem !important; }
+.ht-pleft-2  { padding-left: 1.2rem !important; }
+.ht-pleft-3  { padding-left: 1.3rem !important; }
+.ht-pleft-4  { padding-left: 1.4rem !important; }
+.ht-pleft-5  { padding-left: 1.5rem !important; }
+
+.ht-pright-1  { padding-right: 1.1rem !important; }
+.ht-pright-2  { padding-right: 1.2rem !important; }
+.ht-pright-3  { padding-right: 1.3rem !important; }
+.ht-pright-4  { padding-right: 1.4rem !important; }
+.ht-pright-5  { padding-right: 1.5rem !important; }
+
+.ht-m-1  { margin: 8px !important; }
+.ht-m-2  { margin: 16px !important; }
+.ht-m-3  { margin: 24px !important; }
+.ht-m-4  { margin: 32px !important; }
+.ht-m-5  { margin: 40px !important; }
+
+.ht-mx-1  { margin-left: 8px !important; margin-right: 8px !important; }
+.ht-mx-2  { margin-left: 16px !important; margin-right: 16px !important; }
+.ht-mx-3  { margin-left: 24px !important; margin-right: 24px !important; }
+.ht-mx-4  { margin-left: 32px !important; margin-right: 32px !important; }
+.ht-mx-5  { margin-left: 40px !important; margin-right: 40px !important; }
+
+.ht-my-1  { margin-top: 8px !important; margin-bottom: 8px !important; }
+.ht-my-2  { margin-top: 16px !important; margin-bottom: 16px !important; }
+.ht-my-3  { margin-top: 24px !important; margin-bottom: 24px !important; }
+.ht-my-4  { margin-top: 32px !important; margin-bottom: 32px !important; }
+.ht-my-5  { margin-top: 40px !important; margin-bottom: 40px !important; }
+
+.ht-mtop-1   { margin-top: 8px !important; }
+.ht-mtop-2   { margin-top: 16px !important; }
+.ht-mtop-3   { margin-top: 24px !important; }
+.ht-mtop-4   { margin-top: 32px !important; }
+.ht-mtop-5   { margin-top: 40px !important; }
+
+.ht-mbottom-1   { margin-bottom: 8px !important; }
+.ht-mbottom-2   { margin-bottom: 16px !important; }
+.ht-mbottom-3   { margin-bottom: 24px !important; }
+.ht-mbottom-4   { margin-bottom: 32px !important; }
+.ht-mbottom-5   { margin-bottom: 40px !important; }
+
+.ht-mleft-1   { margin-left: 8px !important; }
+.ht-mleft-2   { margin-left: 16px !important; }
+.ht-mleft-3   { margin-left: 24px !important; }
+.ht-mleft-4   { margin-left: 32px !important; }
+.ht-mleft-5   { margin-left: 40px !important; }
+
+.ht-mright-1   { margin-right: 8px !important; }
+.ht-mright-2   { margin-right: 16px !important; }
+.ht-mright-3   { margin-right: 24px !important; }
+.ht-mright-4   { margin-right: 32px !important; }
+.ht-mright-5   { margin-right: 40px !important; }
+
+.ht-flex        { display: flex !important; }
+.ht-inline-flex { display: inline-flex !important; }
+
+.ht-flex-row        { flex-direction: row !important; }            /* Itens alinhados horizontalmente */
+.ht-flex-row-rev    { flex-direction: row-reverse !important; }    /* Itens alinhados horizontalmente em ordem inversa */
+.ht-flex-col        { flex-direction: column !important; }         /* Itens alinhados verticalmente */
+.ht-flex-col-rev    { flex-direction: column-reverse !important; } /* Itens alinhados verticalmente em ordem inversa */
+
+.ht-justify-start    { justify-content: flex-start !important; }   /* Itens alinhados ao início do contêiner */
+.ht-justify-end      { justify-content: flex-end !important; }     /* Itens alinhados ao final do contêiner */
+.ht-justify-center   { justify-content: center !important; }       /* Itens centralizados no contêiner */
+.ht-justify-between  { justify-content: space-between !important; }/* Espaço igual entre os itens */
+.ht-justify-around   { justify-content: space-around !important; } /* Espaço igual ao redor dos itens */
+.ht-justify-evenly   { justify-content: space-evenly !important; } /* Espaço igual entre e ao redor dos itens */
+
+.ht-items-start    { align-items: flex-start !important; }     /* Itens alinhados ao topo do contêiner */
+.ht-items-end      { align-items: flex-end !important; }       /* Itens alinhados ao fundo do contêiner */
+.ht-items-center   { align-items: center !important; }         /* Itens centralizados ao longo do eixo transversal */
+.ht-items-baseline { align-items: baseline !important; }       /* Itens alinhados na linha de base do texto */
+.ht-items-stretch  { align-items: stretch !important; }        /* Itens esticados para preencher o contêiner */
+
+.ht-content-start    { align-content: flex-start !important; }   /* Linhas alinhadas ao início do contêiner */
+.ht-content-end      { align-content: flex-end !important; }     /* Linhas alinhadas ao final do contêiner */
+.ht-content-center   { align-content: center !important; }       /* Linhas centralizadas verticalmente */
+.ht-content-between  { align-content: space-between !important; }/* Espaço igual entre as linhas */
+.ht-content-around   { align-content: space-around !important; } /* Espaço igual ao redor das linhas */
+.ht-content-stretch  { align-content: stretch !important; }      /* Linhas esticadas para preencher o contêiner */
+
+.ht-order-1 { order: 1 !important; }
+.ht-order-2 { order: 2 !important; }
+.ht-order-3 { order: 3 !important; }
+.ht-order-4 { order: 4 !important; }
+.ht-order-5 { order: 5 !important; }
+
+.ht-flex-grow-0 { flex-grow: 0 !important; } /* Não cresce */
+.ht-flex-grow-1 { flex-grow: 1 !important; } /* Cresce para preencher o espaço disponível */
+
+.ht-flex-shrink-0 { flex-shrink: 0 !important; } /* Não encolhe */
+.ht-flex-shrink-1 { flex-shrink: 1 !important; } /* Encolhe se necessário */
+
+.ht-flex-basis-auto { flex-basis: auto !important; }   /* Tamanho base automático */
+.ht-flex-basis-0    { flex-basis: 0 !important; }      /* Tamanho base 0 */
+.ht-flex-basis-50p  { flex-basis: 50% !important; }    /* Tamanho base 50% */
+.ht-flex-basis-100p { flex-basis: 100% !important; }   /* Tamanho base 100% */
+
+.ht-flex-wrap       { flex-wrap: wrap !important; }          /* Itens quebram em múltiplas linhas */
+.ht-flex-nowrap     { flex-wrap: nowrap !important; }        /* Itens não quebram em múltiplas linhas */
+.ht-flex-wrap-rev   { flex-wrap: wrap-reverse !important; }  /* Itens quebram em múltiplas linhas na ordem inversa */
+
+.ht-self-auto     { align-self: auto !important; }     /* Padrão */
+.ht-self-start    { align-self: flex-start !important; }/* Alinha o item ao início */
+.ht-self-end      { align-self: flex-end !important; }  /* Alinha o item ao final */
+.ht-self-center   { align-self: center !important; }    /* Alinha o item ao centro */
+.ht-self-baseline { align-self: baseline !important; }  /* Alinha o item à linha de base */
+.ht-self-stretch  { align-self: stretch !important; }   /* Estica o item para preencher o contêiner */
+
+.ht-gap-1 { gap: 8px !important; }
+.ht-gap-2 { gap: 16px !important; }
+.ht-gap-3 { gap: 24px !important; }
+.ht-gap-4 { gap: 32px !important; }
+.ht-gap-5 { gap: 40px !important; }
+
+.ht-row-gap-1 { row-gap: 8px !important; }
+.ht-row-gap-2 { row-gap: 16px !important; }
+.ht-row-gap-3 { row-gap: 24px !important; }
+.ht-row-gap-4 { row-gap: 32px !important; }
+.ht-row-gap-5 { row-gap: 40px !important; }
+
+.ht-col-gap-1 { column-gap: 8px !important; }
+.ht-col-gap-2 { column-gap: 16px !important; }
+.ht-col-gap-3 { column-gap: 24px !important; }
+.ht-col-gap-4 { column-gap: 32px !important; }
+.ht-col-gap-5 { column-gap: 40px !important; }
