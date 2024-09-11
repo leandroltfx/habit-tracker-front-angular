@@ -11,14 +11,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login.component';
 import { LoginService } from './acl/service/login.service';
 import { LoginServiceStub } from './tests/stubs/login.service.stub';
+import { MessageServiceStub } from './tests/stubs/message.service.stub';
+import { MessageService } from '../../core/services/message/message.service';
+import { of } from 'rxjs';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
+  let loginServiceStub: LoginServiceStub;
+  let messageServiceStub: MessageServiceStub;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [LoginComponent],
       imports: [
         BrowserAnimationsModule,
         ReactiveFormsModule,
@@ -31,16 +37,35 @@ describe('LoginComponent', () => {
       ],
       providers: [
         { provide: LoginService, useClass: LoginServiceStub },
+        { provide: MessageService, useClass: MessageServiceStub },
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+
+    loginServiceStub = TestBed.inject(LoginService) as unknown as LoginServiceStub;
+    messageServiceStub = TestBed.inject(MessageService) as unknown as MessageServiceStub;
+
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('login - deve disparar mensagem de sucesso de login', () => {
+
+    const spyLogin = spyOn(loginServiceStub, 'login').and.callThrough();
+    const spyShowMessage = spyOn(messageServiceStub, 'showMessage').and.callThrough();
+
+    component.loginForm.controls['email'].setValue('admin@email.com');
+    component.loginForm.controls['password'].setValue('admin123');
+
+    component.login();
+
+    expect(spyLogin).toHaveBeenCalledWith('admin@email.com', 'admin123');
+    expect(spyShowMessage).toHaveBeenCalledWith('Login efetuado com sucesso!', 'success');
   });
 });

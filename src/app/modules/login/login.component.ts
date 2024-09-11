@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { LoginService } from './acl/service/login.service';
 import { LoginResponseDto } from './models/dto/login-response.dto';
+import { MessageService } from '../../core/services/message/message.service';
 
 @Component({
   selector: 'ht-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private readonly _formBuilder: FormBuilder,
     private readonly _loginService: LoginService,
+    private readonly _messageService: MessageService,
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +30,9 @@ export class LoginComponent implements OnInit {
       this.loginForm.controls['email'].value,
       this.loginForm.controls['password'].value,
     ).subscribe(
-      (loginResponseDto: LoginResponseDto) => { }
+      (loginResponseDto: LoginResponseDto) => {
+        this._messageService.showMessage(loginResponseDto.message, 'success');
+      }
     );
   }
 
