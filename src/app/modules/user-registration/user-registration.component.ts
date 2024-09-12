@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from '../../core/services/message/message.service';
+import { UserRegistrationService } from './acl/service/user-registration.service';
+import { RegisterUserResponseDto } from '../../shared/dto/register-user/register-user-response.dto';
 
 @Component({
   selector: 'ht-user-registration',
@@ -21,6 +23,7 @@ export class UserRegistrationComponent implements OnInit {
   constructor(
     private readonly _formBuilder: FormBuilder,
     private readonly _messageService: MessageService,
+    private readonly _userRegistrationService: UserRegistrationService,
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +31,24 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   public registerUser(): void {
-    this._messageService.showMessage('Usuário cadastrado com sucesso!', 'success');
+    if (this.userRegistrationForm.valid) {
+      this._userRegistrationService.registerUser(
+        this.userRegistrationForm.controls['username'].value,
+        this.userRegistrationForm.controls['email'].value,
+        this.userRegistrationForm.controls['password'].value,
+      ).subscribe(
+        (registerUserResponseDto: RegisterUserResponseDto) => {
+          this._messageService.showMessage(registerUserResponseDto.message, 'success');
+        }
+      );
+    } else {
+      Object.values(this.userRegistrationForm.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+        }
+      });
+    }
   }
 
   public updateConfirmValidator(): void {

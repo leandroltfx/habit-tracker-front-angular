@@ -10,8 +10,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
 import { UserRegistrationComponent } from './user-registration.component';
+import { UserRegistrationService } from './acl/service/user-registration.service';
 import { MessageServiceStub } from '../../shared/tests/stubs/message.service.stub';
 import { MessageService } from '../../core/services/message/message.service';
+import { UserRegistrationServiceStub } from '../../shared/tests/stubs/user-registration.service.stub';
 
 describe('UserRegistrationComponent', () => {
   let component: UserRegistrationComponent;
@@ -32,6 +34,7 @@ describe('UserRegistrationComponent', () => {
         MatIconModule,
       ],
       providers: [
+        { provide: UserRegistrationService, useClass: UserRegistrationServiceStub },
         { provide: MessageService, useClass: MessageServiceStub },
       ]
     })
